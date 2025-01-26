@@ -102,7 +102,7 @@ final class MissionController extends AbstractController
 
         switch($request->request->get('action')) { //$request->request Accède au formulaire, puis au bouton 'action' (query pour l'URL)
             case 'btTerminer':
-                if(in_array($employee, $missions.getEmployees())) { //Dans la liste, l'employé connecté parmi les employés affectés aux missions
+                if (in_array($employee, $mission->getEmployees()->toArray())) { //Dans la liste, l'employé connecté parmi les employés affectés aux missions
                     $mission->setStatus('done'); //Il peut cloturer la mission
                 }
                     break;
